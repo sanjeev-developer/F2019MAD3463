@@ -6,7 +6,7 @@ public class MainClass {
 
         LambtonStringTools lambtonStringTools = new LambtonStringTools();
         lambtonStringTools.reverse("Lambton");
-        lambtonStringTools.binaryToDecimal("1000");
-        lambtonStringTools.initials("jean luc picard");
+        lambtonStringTools.binaryToDecimal("10000");
+        lambtonStringTools.initials("James tiBeriUs kiRK");
     }
 }
