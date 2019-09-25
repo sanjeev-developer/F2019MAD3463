@@ -16,17 +16,26 @@ public class LambtonStringTools {
         int binaryNumber = Integer.parseInt(s);
         int decimal = 0;
         int p = 0;
-        while (true) {
-            if (binaryNumber == 0) {
-                break;
-            } else {
-                int temp = binaryNumber % 10;
-                decimal += temp * Math.pow(2, p);
-                binaryNumber = binaryNumber / 10;
-                p++;
+
+        try
+        {
+            while (true) {
+                if (binaryNumber == 0) {
+                    break;
+                } else {
+                    int temp = binaryNumber % 10;
+                    decimal += temp * Math.pow(2, p);
+                    binaryNumber = binaryNumber / 10;
+                    p++;
+                }
             }
+            //  return decimal;
+
         }
-        //  return decimal;
+        catch (Exception e)
+        {
+
+        }
         return decimal;
     }
 
@@ -57,11 +66,29 @@ public class LambtonStringTools {
             }
         }
         return mostFreqChar;
-
     }
 
 
-    public void replaceSubString(String s1, String s2, String s3) {
+    public String replaceSubString(String s1, String s2, String s3) {
+
+         String str = s1.toLowerCase();
+         String second = s2.toLowerCase();
+         String third =s3.toLowerCase();
+//
+//        return str.replace(s2, s3);
+
+        String[] arr = str.split(second);
+        StringBuilder output = new StringBuilder();
+
+        int i = 0;
+        for (; i < arr.length - 1; i++)
+            output.append(arr[i]).append(third);
+
+        output.append(arr[i]);
+        if (str.substring(str.lastIndexOf(" ")).equalsIgnoreCase(" " + second))
+            output.append(third);
+
+        return output.toString();
 
     }
 }
