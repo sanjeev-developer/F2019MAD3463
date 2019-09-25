@@ -1,75 +1,67 @@
 package com.lambton;
 
-public class LambtonStringTools
-{
-    public void reverse(String s)
-    {
+public class LambtonStringTools {
+    public String reverse(String s) {
         int length = s.length();
-        String reverse="";
+        String reverse = "";
 
-        for ( int i = length - 1 ; i >= 0 ; i-- )
+        for (int i = length - 1; i >= 0; i--)
             reverse = reverse + s.charAt(i);
+        return reverse;
 
-        System.out.println("Reversed String = "+reverse);
     }
 
-    public void binaryToDecimal(String s)
-    {
-       // System.out.println(Integer.parseInt(s,2));
-        int binaryNumber =Integer.parseInt(s);
+    public int binaryToDecimal(String s) {
+        // System.out.println(Integer.parseInt(s,2));
+        int binaryNumber = Integer.parseInt(s);
         int decimal = 0;
         int p = 0;
-        while(true){
-            if(binaryNumber == 0){
+        while (true) {
+            if (binaryNumber == 0) {
                 break;
             } else {
-                int temp = binaryNumber%10;
-                decimal += temp*Math.pow(2, p);
-                binaryNumber = binaryNumber/10;
+                int temp = binaryNumber % 10;
+                decimal += temp * Math.pow(2, p);
+                binaryNumber = binaryNumber / 10;
                 p++;
             }
         }
-      //  return decimal;
-
-        System.out.println("output"+decimal);
+        //  return decimal;
+        return decimal;
     }
 
-    public void initials(String s)
-    {
+    public String initials(String s) {
         String[] splited = s.split("\\s+");
 
-        if(splited.length == 3)
-        {
-            System.out.println(splited[0].substring(0,1).toUpperCase()+"."+splited[1].substring(0,1).toUpperCase()+"."+splited[2].substring(0,1).toUpperCase() + splited[2].substring(1).toLowerCase() ); // char at index 0
-        }
-        else
-        {
-            System.out.println("null");
+        if (splited.length == 3) {
+            return splited[0].substring(0, 1).toUpperCase() + "." + splited[1].substring(0, 1).toUpperCase() + "." + splited[2].substring(0, 1).toUpperCase() + splited[2].substring(1).toLowerCase();
+        } else {
+            return "null";
         }
     }
 
-    public void mostFrequent(String s)
-    {
-//        int len = s.length();
-//        int max = 0;  // Initialize max count
-//        char result;   // Initialize result
-//
-//        // Traversing through the string and maintaining
-//        // the count of each character
-//        for (int i = 0; i < len; i++) {
-//            count[str[i]]++;
-//            if (max < count[str[i]]) {
-//                max = count[str[i]];
-//                result = str[i];
-//            }
-//        }
-//
-//        return result;
+    public char mostFrequent(String s) {
+        String removedspace = s.replaceAll("\\s", "");
+        int highestFreq = 0;
+        char mostFreqChar = ' ';
+        for (int i = 0; i < removedspace.length(); i++) {
+            //Get a char and go through entire string to determine how many times that char occurs
+            char x = removedspace.charAt(i);
+            int c = 0;
+            for (int j = removedspace.indexOf(x); j != -1; j = removedspace.indexOf(x, j + 1)) {
+                c++;
+            }
+            if (c > highestFreq) {
+                highestFreq = c;
+                mostFreqChar = x;
+            }
+        }
+        return mostFreqChar;
 
     }
 
-    public void replaceSubString(String s1, String s2, String s3)
-    {
+
+    public void replaceSubString(String s1, String s2, String s3) {
 
     }
 }
