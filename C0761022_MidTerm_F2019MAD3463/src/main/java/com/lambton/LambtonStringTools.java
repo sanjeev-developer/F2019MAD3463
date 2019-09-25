@@ -18,7 +18,20 @@ public class LambtonStringTools
         System.out.println(Integer.parseInt(s,2));
     }
 
-  
+    public void initials(String s)
+    {
+        String[] splited = s.split("\\s+");
+
+        if(splited.length == 3)
+        {
+            System.out.println(splited[0].charAt(0)+"."+splited[1].charAt(0)+"."+splited[2]); // char at index 0
+        }
+        else
+        {
+            System.out.println("null");
+        }
+    }
+
     public void mostFrequent(String s)
     {
 
