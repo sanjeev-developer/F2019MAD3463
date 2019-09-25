@@ -13,8 +13,12 @@ public class LambtonStringTools
         System.out.println("Reversed String = "+reverse);
     }
 
-  
+    public void binaryToDecimal(String s)
+    {
+        System.out.println(Integer.parseInt(s,2));
+    }
 
+  
     public void mostFrequent(String s)
     {
 
